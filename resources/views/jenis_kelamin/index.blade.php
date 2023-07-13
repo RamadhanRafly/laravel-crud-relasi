@@ -16,7 +16,7 @@
                 <h2>Laravel 10 Crud (Create,Read,Update,and Delete)</h2>
             </div>
             <div class="card-body">
-                <a href="{{ url('penumpang/create')  }}" class="btn btn-success btn-sm" title="Add New Penumpang">
+                <a href="{{ url('jenis_kelamin/create')  }}" class="btn btn-success btn-sm" title="Add New jenis">
                     Add New
                 </a>
                 <br>
@@ -26,26 +26,22 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nama</th>
-                                <th>No Telepon</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($penumpang as $item)
+                            @foreach($jenis_kelamin as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama }}</td>
-                                <td>{{ $item->no_telp }}</td>
-                                <td>{{ $item->jenisKelamin?->jenis_kelamin}}</td> 
+                                <td>{{ $item->jenis_kelamin}}</td>
                                 <td>
-                                    <a href="{{url('/penumpang/' .$item->id)}}" title="View"><button class="btn btn-info btn-sm "><i aria-hidden="true"></i><i>View</i></button></a>
-                                    <a href="{{url('/penumpang/' .$item->id . '/edit/')}}" title="Edit"><button class="btn btn-primary btn-sm"><i aria-hidden="true"></i><i>Edit</i></button></a>
-                                    <form method="POST" action="{{url('/penumpang' . '/' . $item->id) }}" accep-charset="UTF-8" style="display:inline">
+                                    <a href="{{url('/jenis_kelamin/' .$item->id)}}" title="View"><button class="btn btn-info btn-sm "><i aria-hidden="true"></i><i>View</i></button></a>
+                                    <a href="{{url('/jenis_kelamin/' .$item->id . '/edit/')}}" title="Edit"><button class="btn btn-primary btn-sm"><i aria-hidden="true"></i><i>Edit</i></button></a>
+                                    <form method="POST" action="{{url('/jenis_kelamin' . '/' . $item->id) }}" accep-charset="UTF-8" style="display:inline">
                                         {{ method_field('DELETE') }}
                                         {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete Penumpang" onclick="return confirm("Confirm Delete?") "><i aria-hidden="true"></i><i>Delete</i></button></a>
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete jenis" onclick="return confirm("Confirm Delete?") "><i aria-hidden="true"></i><i>Delete</i></button></a>
                                     </form>
                                 
                                 </td>

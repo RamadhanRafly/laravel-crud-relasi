@@ -13,13 +13,21 @@
     <form action="{{ url('penumpang') }}" method="post">
         {!! csrf_field() !!}
         <label>Nama</label><br>
-        <input type="text" name="nama" id="nama" class="form-control"><br>
+        <input type="text" name="nama" id="nama" class="form-control" required><br>
 
         <label>Nomor Telepon</label>
-        <input type="number" name="no_telp" id="no_telp" class="form-control"><br>
+        <input type="number" name="no_telp" id="no_telp" class="form-control" required><br>
 
         <label>Jenis Kelamin</label>
-        <input type="text" name="jenis_kelamin" id="jenis_kelamin" class="form-control"><br>
+        <div class="form-group">
+        <select type="text" class="form-control" name="jenis_kelamin" value="" id="jenis_kelamin">
+            @isset($jenis_kelamin)
+            @foreach ($jenis_kelamin as $item)
+            <option value="{{ $item->id}}">{{ $item->jenis_kelamin}}</option>
+            @endforeach
+             @endisset          
+          </select>
+        </div>
 
         <input type="submit" value="Save" class="btn btn-success"><br>
     </form>

@@ -11,7 +11,7 @@
     <div class="card-header">Edit Page</div>
     <div class="card-body">
 
-    <form action="{{ url('penumpang/' .$penumpang->id) }}" method="post">
+    <form action="{{ route('penumpang.update' , $penumpang->id) }}" method="POST">
     {!! csrf_field() !!}
     @method("PATCH")
     <input type="hidden" name="id" id="id" value="{{ $penumpang->id }}" id="id">
@@ -20,7 +20,17 @@
     <label>No.Telepon</label><br>
     <input type="number" name="no_telp" id="no_telp" value="{{ $penumpang->no_telp }}" class="form-control"><br>
     <label>Jenis Kelamin</label><br>
-    <input type="text" name="jenis_kelamin" id="jenis_kelamin" value="{{ $penumpang->jenis_kelamin }}" class="form-control"><br>
+    <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
+                                    @foreach ($jenis_kelamin as $item)
+                                    @if($item->id==$penumpang->jenis_kelamin || $item->id == old('jenis_kelamin'))
+                                  <option selected value="{{ $item->id}}" >{{ $item->jenis_kelamin}}
+                                 </option>
+                                 @else 
+                                 <option value="{{ $item->id }}" >{{ $item->jenis_kelamin }}
+                                </option>
+                                           @endif
+                                     @endforeach
+          </select>
     <input type="submit" value="Update" class="btn btn-success"></br>   
 </form> 
 </div>

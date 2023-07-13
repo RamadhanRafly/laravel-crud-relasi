@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Penumpang;//add Penumpang Model - Data is coming from the database via Model.
-
+use App\Models\Jenis;
 class PenumpangController extends Controller
 {
     /**
@@ -21,7 +21,8 @@ class PenumpangController extends Controller
      */
     public function create()
     {
-        return view('penumpang.create');
+        $jenis_kelamin = Jenis::all();
+        return view('penumpang.create', compact('jenis_kelamin'));
     }
 
     /**
@@ -56,7 +57,10 @@ class PenumpangController extends Controller
     public function edit(string $id)
     {
         $penumpang = Penumpang::find($id);
-        return view('penumpang.edit')->with('penumpang', $penumpang);
+        $jenis_kelamin = Jenis::all();
+
+        // return view('penumpang.edit')->with('penumpang', $penumpang);
+        return view('penumpang.edit', compact('jenis_kelamin','penumpang'));
     }
 
     /**
@@ -68,12 +72,21 @@ class PenumpangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $penumpang = Penumpang::find($id);
-        $input =$request->all();
-        $penumpang->update($input);
-        return redirect('penumpang')->with('flash_message', 'penumpang Updated!');
-    }
+        $request->validate([
+            'nama' => 'required',
+            'no_telp' => 'required',
+            'jenis_kelamin' => 'required',
+        ]);
 
+        $penumpang = Penumpang::find($id);
+        $penumpang ->nama = $request->nama;
+        $penumpang ->no_telp = $request->no_telp;
+        $penumpang ->jenis_kelamin = $request->jenis_kelamin;
+        $penumpang ->save();
+
+        return to_route('penumpang.index')->with('success', 'Data Di Tambah');
+    }
+    
     /**
      * Remove the specified resource from storage.
      * 

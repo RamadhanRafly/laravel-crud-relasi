@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\penumpangController;
+use App\Http\Controllers\PenumpangController;
+use App\Http\Controllers\JkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource("/penumpang", penumpangController::class); 
+Route::resource("/penumpang", PenumpangController::class); 
+Route::resource("/jenis_kelamin", JkController::class); 

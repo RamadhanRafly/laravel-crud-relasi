@@ -11,4 +11,9 @@ class Penumpang extends Model
     protected $table ='penumpang';
     protected $primaryKey ='id';
     protected $fillable = ['nama','no_telp','jenis_kelamin'];
+
+    public function jenisKelamin()
+    {
+        return $this->belongsTo(Jenis::class, 'jenis_kelamin', 'id');
+    }
 }
