@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Penumpang;//add Penumpang Model - Data is coming from the database via Model.
+use App\Models\Penumpang;//add penumpang Model - Data is coming from the database via Model.
 use App\Models\Jenis;
 class PenumpangController extends Controller
 {
@@ -34,9 +34,9 @@ class PenumpangController extends Controller
     public function store(Request $request)
     {
         $input =$request->all();
-        Penumpang::create($input);
+        penumpang::create($input);
 
-        return redirect('penumpang')->with('flash_message', 'Penumpang Addedd');
+        return redirect('penumpang')->with('flash_message', 'penumpang Addedd');
     }
 
     /**
@@ -44,7 +44,7 @@ class PenumpangController extends Controller
      */
     public function show(string $id)
     {
-        $penumpang = Penumpang::find($id);
+        $penumpang = penumpang::find($id);
         return view('penumpang.show')->with('penumpang', $penumpang);
     }
 
@@ -56,13 +56,12 @@ class PenumpangController extends Controller
      */
     public function edit(string $id)
     {
-        $penumpang = Penumpang::find($id);
+        $penumpang = penumpang::find($id);
         $jenis_kelamin = Jenis::all();
 
         // return view('penumpang.edit')->with('penumpang', $penumpang);
         return view('penumpang.edit', compact('jenis_kelamin','penumpang'));
     }
-
     /**
      * Update the specified resource in storage.
      * 
@@ -78,10 +77,10 @@ class PenumpangController extends Controller
             'jenis_kelamin' => 'required',
         ]);
 
-        $penumpang = Penumpang::find($id);
+        $penumpang = penumpang::find($id);
         $penumpang ->nama = $request->nama;
         $penumpang ->no_telp = $request->no_telp;
-        $penumpang ->jenis_kelamin = $request->jenis_kelamin;
+        $penumpang ->jeniskelamin = $request->jenis_kelamin;
         $penumpang ->save();
 
         return to_route('penumpang.index')->with('success', 'Data Di Tambah');
@@ -95,7 +94,7 @@ class PenumpangController extends Controller
      */
     public function destroy(string $id)
     {
-        Penumpang::destroy($id);
-        return redirect('penumpang')->with('flash_message', 'Penumpang deleted!');
+        penumpang::destroy($id);
+        return redirect('penumpang')->with('flash_message', 'penumpang deleted!');
     }
 }

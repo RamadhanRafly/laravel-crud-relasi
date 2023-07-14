@@ -38,7 +38,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->no_telp }}</td>
-                                <td>{{ $item->jenisKelamin?->jenis_kelamin}}</td> 
+                                <td>{{ $item->jenisKelamin?->jeniskelamin}}</td> 
                                 <td>
                                     <a href="{{url('/penumpang/' .$item->id)}}" title="View"><button class="btn btn-info btn-sm "><i aria-hidden="true"></i><i>View</i></button></a>
                                     <a href="{{url('/penumpang/' .$item->id . '/edit/')}}" title="Edit"><button class="btn btn-primary btn-sm"><i aria-hidden="true"></i><i>Edit</i></button></a>

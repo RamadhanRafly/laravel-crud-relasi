@@ -20,10 +20,10 @@
 
         <label>Jenis Kelamin</label>
         <div class="form-group">
-        <select type="text" class="form-control" name="jenis_kelamin" value="" id="jenis_kelamin">
+        <select type="text" class="form-control" name="jeniskelamin" value="" id="jeniskelamin">
             @isset($jenis_kelamin)
             @foreach ($jenis_kelamin as $item)
-            <option value="{{ $item->id}}">{{ $item->jenis_kelamin}}</option>
+            <option value="{{ $item->id}}">{{ $item->jeniskelamin}}</option>
             @endforeach
              @endisset          
           </select>

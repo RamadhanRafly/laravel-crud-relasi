@@ -23,10 +23,10 @@
     <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
                                     @foreach ($jenis_kelamin as $item)
                                     @if($item->id==$penumpang->jenis_kelamin || $item->id == old('jenis_kelamin'))
-                                  <option selected value="{{ $item->id}}" >{{ $item->jenis_kelamin}}
+                                  <option selected value="{{ $item->id}}" >{{ $item->jeniskelamin}}
                                  </option>
                                  @else 
-                                 <option value="{{ $item->id }}" >{{ $item->jenis_kelamin }}
+                                 <option value="{{ $item->id }}" >{{ $item->jeniskelamin }}
                                 </option>
                                            @endif
                                      @endforeach

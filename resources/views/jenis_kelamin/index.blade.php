@@ -34,7 +34,7 @@
                             @foreach($jenis_kelamin as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->jenis_kelamin}}</td>
+                                <td>{{ $item->jeniskelamin}}</td>
                                 <td>
                                     <a href="{{url('/jenis_kelamin/' .$item->id)}}" title="View"><button class="btn btn-info btn-sm "><i aria-hidden="true"></i><i>View</i></button></a>
                                     <a href="{{url('/jenis_kelamin/' .$item->id . '/edit/')}}" title="Edit"><button class="btn btn-primary btn-sm"><i aria-hidden="true"></i><i>Edit</i></button></a>

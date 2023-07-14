@@ -11,7 +11,7 @@ class Jenis extends Model
     protected $table='jenis_kelamin';
     protected $primaryKey='id';
     protected $fillable=[
-        'jenis_kelamin'
+        'jeniskelamin'
     ];
     public function penumpang()
     {

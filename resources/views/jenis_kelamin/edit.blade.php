@@ -16,8 +16,8 @@
     @method("PATCH")
     <input type="hidden" name="id" id="id" value="{{ $jenis_kelamin->id }}" id="id">
     <label>Jenis Kelamin</label><br>
-    <input type="text" name="jenis_kelamin" id="jenis_kelamin" 
-    value="{{ $jenis_kelamin->jenis_kelamin }}" class="form-control"><br>
+    <input type="text" name="jeniskelamin" id="jeniskelamin" 
+    value="{{ $jenis_kelamin->jeniskelamin }}" class="form-control"><br>
     <input type="submit" value="Update" class="btn btn-success"></br>   
 </form> 
 </div>

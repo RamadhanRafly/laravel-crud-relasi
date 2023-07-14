@@ -71,11 +71,11 @@ class JkController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'jenis_kelamin' => 'required|min:3',
+            'jeniskelamin' => 'required',
         ]);
 
         $jenis_kelamin = Jenis::find($id);
-        $jenis_kelamin->jenis_kelamin = $request->jenis_kelamin;
+        $jenis_kelamin->jeniskelamin = $request->jeniskelamin;
         $jenis_kelamin->save();
 
         return to_route('jenis_kelamin.index')->with('succes', 'data di tambah');

@@ -14,7 +14,7 @@
         {!! csrf_field() !!}
 
         <label>Jenis Kelamin</label>
-        <input type="text" name="jenis_kelamin" id="jenis_kelamin" class="form-control"><br>
+        <input type="text" name="jeniskelamin" id="jeniskelamin" class="form-control"><br>
 
         <input type="submit" value="Save" class="btn btn-success"><br>
     </form>
